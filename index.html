@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dickson Tawiah Aman — Engineer & Innovator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A96E;
+      --gold-light: #E8D5B0;
+      --dark: #0A0C10;
+      --dark-2: #111318;
+      --dark-3: #181C24;
+      --dark-4: #1F2430;
+      --text: #E8E6E0;
+      --text-muted: #8A8A8A;
+      --indigo: #4F6EF7;
+      --indigo-bright: #7B93FF;
+      --border: rgba(201,169,110,0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ─── HERO BANNER ─── */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 50%, var(--dark-2) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 24px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 400px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-banner h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+    .hero-banner h1 span { color: var(--gold); }
+    .hero-banner p {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 16, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ─── HERO CINEMATIC ─── */
+    .hero-cinematic {
+      position: relative;
+      height: 80vh;
+      min-height: 480px;
+      background: linear-gradient(to bottom, var(--dark-3), var(--dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/engineering-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+    .hero-cinematic-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(79,110,247,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp 1s ease both;
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .hero-cta {
+      margin-top: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+    }
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 80px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(232,230,224,0.8);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .stat-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--gold); }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-bottom: 80px;
+    }
+    .project-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.25s;
+      position: relative;
+    }
+    .project-card:hover { border-color: var(--gold); }
+    .project-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, opacity 0.3s;
+      opacity: 0.85;
+    }
+    .project-card:hover img { transform: scale(1.03); opacity: 1; }
+    .project-card-body { padding: 28px; }
+    .project-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .project-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    video {
+      width: 100%;
+      border-radius: 0;
+      background: #000;
+    }
+
+    /* ─── ONGOING PROJECTS SLIDESHOW ─── */
+    .ongoing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+    }
+    .ongoing-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .slide-controls {
+      display: flex;
+      gap: 8px;
+    }
+    .slide-btn {
+      width: 40px; height: 40px;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .slide-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+      border-color: var(--gold);
+    }
+
+    /* Ongoing slideshow container */
+    .ongoing-slideshow {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--dark-3);
+    }
+    .ongoing-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .ongoing-slide {
+      min-width: 100%;
+      position: relative;
+    }
+    .ongoing-slide img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      opacity: 0.7;
+      display: block;
+    }
+    .ongoing-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.3) 60%, transparent 100%);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .ongoing-index {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .ongoing-slide-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .ongoing-slide-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+    .ongoing-progress {
+      margin-top: 16px;
+      display: flex;
+      gap: 6px;
+    }
+    .progress-dot {
+      height: 2px;
+      flex: 1;
+      background: rgba(201,169,110,0.25);
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .progress-dot.active { background: var(--gold); }
+
+    /* ─── DOCUMENTARY ─── */
+    .doc-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--dark-3);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .doc-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    .doc-body {
+      padding: 40px;
+    }
+    .doc-body h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .doc-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* ─── CERTIFICATES ─── */
+    .cert-wrapper {
+      position: relative;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .cert-slides { position: relative; height: 460px; }
+    .cert-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .cert-slide.active { opacity: 1; }
+    .cert-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .cert-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .cert-btn {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cert-btn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .cert-counter {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .skills-panel {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 40px;
+    }
+    .skills-panel h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+      font-size: 0.88rem;
+      color: rgba(232,230,224,0.8);
+      line-height: 1.5;
+    }
+    .skill-item:last-child { border-bottom: none; }
+    .skill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ─── RESUME ─── */
+    .resume-section {
+      background: var(--dark-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .resume-section p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--dark); }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3px;
+    }
+    .contact-info {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 48px 36px;
+    }
+    .contact-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .contact-detail {
+      margin-bottom: 20px;
+    }
+    .contact-detail-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .contact-detail-value {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .contact-form {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      padding: 48px 36px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--gold); }
+    textarea.form-input { min-height: 120px; resize: vertical; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .about-grid, .projects-grid, .skills-grid,
+      .contact-grid, .doc-card { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .ongoing-slide img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <h1>Dickson Tawiah <span>Aman</span></h1>
+    <p>Multiskilled Engineer &nbsp;·&nbsp; Innovator &nbsp;·&nbsp; Researcher</p>
+    <span class="badge">ARAeS — Associate Fellow, Royal Aeronautical Society</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">DTA / Portfolio</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO CINEMATIC -->
+  <section class="hero-cinematic">
+    <div class="hero-cinematic-bg"></div>
+    <div class="hero-cinematic-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Engineer · Innovator · Visionary</p>
+      <h2 class="hero-title">Welcome to<br><em>My World</em></h2>
+      <p class="hero-sub">Innovating through Precision and Passion.</p>
+      <a href="#about" class="hero-cta">Explore Portfolio &nbsp;↓</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="section-label">01 — About</div>
+    <div class="section-title">The Engineer<br>Behind the Vision</div>
+    <div class="about-grid">
+      <p class="about-text">
+        A motivated and multiskilled Engineer with expertise in Aerospace and UAV design, Mechanical and Electrical Systems, Embedded Systems, Web Development and Sustainable Engineering. Passionate about driving innovative solutions for sustainability challenges while enhancing mechanical and electrical efficiency.
+        <br><br>
+        Skilled in engineering design, system analysis, maintenance and team collaboration with a proven record of delivering successful project outcomes. On a mission to create meaningful impact across Aerospace, Mechanical, Electrical, Systems and Maintenance Engineering.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Engineering Disciplines</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Major Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">25km</div>
+          <div class="stat-label">UAV Range</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Drive to Innovate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-label reveal">02 — Projects</div>
+    <div class="section-title reveal">Featured<br>Engineering Work</div>
+
+    <div class="projects-grid reveal">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <a href="assets/images/project1.jpg" target="_blank">
+          <img src="assets/images/project1.jpg" alt="Fixed Wing UAV" />
+        </a>
+        <div class="project-card-body">
+          <div class="project-tag">Aerospace · UAV</div>
+          <h4>Fixed Wing UAV</h4>
+          <p>A fixed wing tricopter UAV with VTOL capabilities, a 25km range and 31 minutes endurance — pushing the limits of compact unmanned flight.</p>
+          <video controls>
+            <source src="assets/videos/project1-demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <a href="assets/images/project2.jpg" target="_blank">
+          <img src="assets/images/project2.jpg" alt="Hybrid Engine" />
+        </a>
+        <div class="project-card-body">
+          <div class="project-tag">Propulsion · Systems</div>
+          <h4>Hybrid Engine</h4>
+          <p>An integrated gas turbine engine harnessing the potential of electric, jet and rocket propulsion into a single unified system.</p>
+          <video controls>
+            <source src="assets/videos/project2-demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONGOING PROJECTS SLIDESHOW -->
+    <div class="reveal">
+      <div class="ongoing-header">
+        <div>
+          <div class="section-label" style="margin-bottom:8px;">Research in Progress</div>
+          <div class="ongoing-title">Ongoing Projects &amp; Research</div>
+        </div>
+        <div class="slide-controls">
+          <button class="slide-btn" id="ongoingPrev">&#8592;</button>
+          <button class="slide-btn" id="ongoingNext">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="ongoing-slideshow">
+        <div class="ongoing-track" id="ongoingTrack">
+
+          <!-- Slide 1 -->
+          <div class="ongoing-slide">
+            <img src="assets/images/project1.jpg" alt="Digital Twin" />
+            <div class="ongoing-overlay">
+              <div class="ongoing-index">01 / 04</div>
+              <div class="ongoing-slide-title">Digital Twin for Machines &amp; Industrial Processes</div>
+              <div class="ongoing-slide-desc">Real-time virtual replicas of physical systems enabling predictive maintenance, process optimisation, and performance simulation.</div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="ongoing-slide">
+            <img src="assets/images/project2.jpg" alt="AI Consciousness" />
+            <div class="ongoing-overlay">
+              <div class="ongoing-index">02 / 04</div>
+              <div class="ongoing-slide-title">Artificially Intelligent Consciousness</div>
+              <div class="ongoing-slide-desc">Exploring the frontier of machine self-awareness — developing AI architectures that exhibit goal-directed, contextually adaptive cognition.</div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="ongoing-slide">
+            <img src="assets/images/project3.jpg" alt="Magnetic Repulsion" />
+            <div class="ongoing-overlay">
+              <div class="ongoing-index">03 / 04</div>
+              <div class="ongoing-slide-title">Effective Magnetic Field Length &amp; Repulsive Technology</div>
+              <div class="ongoing-slide-desc">Research into optimised magnetic field geometries and novel repulsive mechanisms for next-generation levitation and propulsion applications.</div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="ongoing-slide">
+            <img src="assets/images/project2.jpg" alt="Hybrid Engine Full Potential" />
+            <div class="ongoing-overlay">
+              <div class="ongoing-index">04 / 04</div>
+              <div class="ongoing-slide-title">Harnessing the Full Potential of the Hybrid Engine</div>
+              <div class="ongoing-slide-desc">Advancing the integrated gas turbine design toward operational deployment — maximising thrust efficiency across all three propulsion modes.</div>
+            </div>
+          </div>
+
+        </div><!-- /track -->
+
+        <!-- Progress dots -->
+        <div class="ongoing-progress" style="position:absolute; bottom:0; left:0; right:0; padding: 0 36px 20px;">
+          <div class="progress-dot active" data-idx="0"></div>
+          <div class="progress-dot" data-idx="1"></div>
+          <div class="progress-dot" data-idx="2"></div>
+          <div class="progress-dot" data-idx="3"></div>
+        </div>
+      </div><!-- /slideshow -->
+    </div><!-- /reveal -->
+  </section>
+
+  <hr class="divider">
+
+  <!-- DOCUMENTARY -->
+  <section class="section reveal">
+    <div class="section-label">03 — Documentary</div>
+    <div class="section-title">My Journey</div>
+    <div class="doc-card">
+      <img src="assets/images/project3.jpg" alt="My Journey" />
+      <div class="doc-body">
+        <div class="project-tag" style="margin-bottom:12px;">Personal Story · Film</div>
+        <h4>A Student's Journey</h4>
+        <p>An intimate documentary tracing the path from curiosity to creation — the challenges, breakthroughs and defining moments that shaped an engineer.</p>
+        <video controls>
+          <source src="assets/videos/project3-demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CERTIFICATES -->
+  <section id="certificates" class="section reveal">
+    <div class="section-label">04 — Credentials</div>
+    <div class="section-title">Certificates &amp;<br>Achievements</div>
+    <div class="cert-wrapper">
+      <div class="cert-slides" id="certSlides">
+        <div class="cert-slide active"><img src="assets/certificates/cert1.jpg" alt="Certificate 1" /></div>
+        <div class="cert-slide"><img src="assets/certificates/cert2.jpg" alt="Certificate 2" /></div>
+        <div class="cert-slide"><img src="assets/certificates/cert3.jpg" alt="Certificate 3" /></div>
+        <div class="cert-slide"><img src="assets/certificates/cert4.jpg" alt="Certificate 4" /></div>
+      </div>
+      <div class="cert-nav">
+        <button class="cert-btn" id="certPrev">&#8592;</button>
+        <span class="cert-counter" id="certCounter">1 / 4</span>
+        <button class="cert-btn" id="certNext">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section id="skills" class="section reveal">
+    <div class="section-label">05 — Capabilities</div>
+    <div class="section-title">Skills &amp;<br>Expertise</div>
+    <div class="skills-grid">
+      <div class="skills-panel">
+        <h4>Technical Skills</h4>
+        <div class="skill-item"><span class="skill-dot"></span><span>CAD — SolidWorks, NX, AutoCAD, CATIA</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>CFD Analysis, MATLAB, Simulink</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>C, C++, Java, HTML, Arduino, STM32, Linux</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Proteus, KiCad, PCB Design</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Microsoft Office Suite, Power BI</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Technical Report Writing &amp; Prototyping</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Machine Design and Assembly</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Engine Servicing &amp; Painting</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Aerospace &amp; Mechanical Structural Analysis</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Electrical Systems Performance Tracking</span></div>
+      </div>
+      <div class="skills-panel">
+        <h4>Soft Skills</h4>
+        <div class="skill-item"><span class="skill-dot"></span><span>Leadership — guiding teams toward shared technical goals</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Innovative Mindset — first-principles approach to problem framing</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Problem-Solving — systematic root-cause analysis and iteration</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Teamwork — cross-functional collaboration across disciplines</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Communication — translating complex systems into clear insights</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <div class="resume-section reveal">
+    <div class="section-label" style="justify-content:center; max-width:1100px; margin:0 auto 16px;">06 — Resume</div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; margin-bottom:12px;">Download My CV</div>
+    <p>View my full career history, qualifications and publications.</p>
+    <a href="assets/resume/Dickson_Tawiah_Aman_Resume.pdf" target="_blank" class="btn-primary">
+      ↓ &nbsp; Download Resume
+    </a>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal">
+    <div class="section-label">07 — Contact</div>
+    <div class="section-title">Let's Work<br>Together</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h4>Get in Touch</h4>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-detail-value">+44 7458 913199</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">travan010@gmail.com</div>
+        </div>
+        <div class="contact-detail" style="margin-top:40px;">
+          <div class="contact-detail-label">Available for</div>
+          <div class="contact-detail-value" style="color:var(--text-muted); font-size:0.85rem; line-height:1.7;">
+            Engineering collaborations<br>
+            Research partnerships<br>
+            Consultancy &amp; freelance projects<br>
+            Speaking opportunities
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form action="mailto:travan010@gmail.com" method="POST" enctype="text/plain">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="Name" class="form-input" required placeholder="John Smith" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="Email" class="form-input" required placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="Message" class="form-input" required placeholder="Tell me about your project or inquiry…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+            Send Message &nbsp;→
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Dickson Tawiah Aman</span>
+      <span class="footer-copy">&copy; 2025 — All rights reserved. ARAeS</span>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ─── Reveal on scroll ───
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ─── Ongoing projects slideshow ───
+    let ongoingIdx = 0;
+    const track = document.getElementById('ongoingTrack');
+    const dots = document.querySelectorAll('.progress-dot');
+    const totalSlides = document.querySelectorAll('.ongoing-slide').length;
+
+    function goToSlide(idx) {
+      ongoingIdx = (idx + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${ongoingIdx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === ongoingIdx));
+    }
+
+    document.getElementById('ongoingNext').addEventListener('click', () => goToSlide(ongoingIdx + 1));
+    document.getElementById('ongoingPrev').addEventListener('click', () => goToSlide(ongoingIdx - 1));
+    dots.forEach(d => d.addEventListener('click', () => goToSlide(+d.dataset.idx)));
+
+    let ongoingTimer = setInterval(() => goToSlide(ongoingIdx + 1), 5000);
+    document.querySelector('.ongoing-slideshow').addEventListener('mouseenter', () => clearInterval(ongoingTimer));
+    document.querySelector('.ongoing-slideshow').addEventListener('mouseleave', () => {
+      ongoingTimer = setInterval(() => goToSlide(ongoingIdx + 1), 5000);
+    });
+
+    // ─── Certificates slideshow ───
+    let certIdx = 0;
+    const certSlides = document.querySelectorAll('.cert-slide');
+    const certCounter = document.getElementById('certCounter');
+
+    function showCert(idx) {
+      certIdx = (idx + certSlides.length) % certSlides.length;
+      certSlides.forEach((s, i) => s.classList.toggle('active', i === certIdx));
+      certCounter.textContent = `${certIdx + 1} / ${certSlides.length}`;
+    }
+
+    document.getElementById('certNext').addEventListener('click', () => showCert(certIdx + 1));
+    document.getElementById('certPrev').addEventListener('click', () => showCert(certIdx - 1));
+    setInterval(() => showCert(certIdx + 1), 4000);
+
+    // ─── One video at a time ───
+    const videos = document.querySelectorAll('video');
+    videos.forEach(v => {
+      v.addEventListener('play', () => {
+        videos.forEach(other => {
+          if (other !== v) { other.pause(); other.currentTime = 0; }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
